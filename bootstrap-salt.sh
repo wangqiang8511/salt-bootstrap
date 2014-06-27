@@ -687,6 +687,10 @@ __gather_linux_system_info() {
             # This the Oracle Linux Server 6.5
             DISTRO_NAME="Oracle Linux"
         fi
+        elif [ "${DISTRO_NAME}" = "AmazonAMI" ]; then
+            # This the Amazone Linux AMI
+            DISTRO_NAME="Amazon Linux AMI"
+        fi
         rv=$(lsb_release -sr)
         [ "${rv}" != "" ] && DISTRO_VERSION=$(__parse_version_string "$rv")
     elif [ -f /etc/lsb-release ]; then
